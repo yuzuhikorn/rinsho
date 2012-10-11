@@ -9,10 +9,10 @@
 <!--IE用キャシュ無効化(機能せず?)-->
 <style>
 *{
-font-family: '平成角ゴシック';
+	font-family: '平成角ゴシック';
 }
 table,td,th{
-    border:1px #aaa solid;
+border:1px #aaa solid;
     border-spacing:0px;
 }
 </style>
@@ -27,10 +27,10 @@ table,td,th{
     print "<input type='submit' value='送信'/>\n";
     print "</form>\n";
     print "</div>\n";
-?>
+	?>
 <!--safari用キャシュ無効化(機能せず?)-->
 <iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
-    this frame prevents back forward cache
+this frame prevents back forward cache
 </iframe>
 <!--safari用キャシュ無効化(機能せず?)-->
 
