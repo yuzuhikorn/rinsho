@@ -9,8 +9,12 @@
 		
 		
 		if(!$res){
+			mysql_query( "rollback", $link);
+			mysql_close($link);
 			header("Location: ./failed.html");
 		}else{
+			mysql_query( "commit", $link);
+			mysql_close($link);
 			header("Location: ./compleate.html");
 		}
 	}

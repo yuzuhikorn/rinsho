@@ -26,12 +26,12 @@
 		</style>
 	</head>
 	<body>
-		<header><h1 style='text-align:center;'>講座登録</h1></header>
-		<p>新規に講座を登録します。
-		<p>既存の講座の希望者も確認できます。
+		<header><h1 style='text-align:center;'>研修登録</h1></header>
+		<p>新規に研修を登録します。
+		<p>既存の研修の希望者も確認できます。
 		<div style="text-align:center;">
-			<form action="insert_new_lesson.php" method="POST"><br>
-			講座名：<input type="text" name="event_name" size="100" /><br/>
+			<form action="confirm_lesson_information.php" method="POST"><br>
+			研修名：<input type="text" name="event_name" size="100" /><br/>
 			<?php
 				print "日時:<select name='start_month'>";
 				print "<option value=''>-月</option>";
@@ -93,7 +93,7 @@
 			所属：<input type="text" name="laboratory" size="100" /><br/>
 			場所：<input type="text" name="place" size="100" /><br/>
 			参加費：<input type="text" name="fee" size="100" onkeyDown="return numOnly()"/><br/>
-			<input type="submit" value="講座登録"/><br>
+			<input type="submit" value="研修登録"/><br>
 			</div>
 		</form>
 		<?php
@@ -123,7 +123,7 @@
 						print "<div style='text-align:center;'>\n";
 						print "<form action='applicant_for_this_lesson.php' method='POST'>\n";
 						print "<input type='hidden' name='applicated_lesson_id' value='".$data[0]."' size='100' />";
-						print "<input type='submit' value='この講座の受講希望者を一覧表示' class='s2'/>\n";
+						print "<input type='submit' value='この研修の受講希望者を一覧表示' class='s2'/>\n";
 						print "</form>\n";
 						print "</div>\n";
 						print "<br>";

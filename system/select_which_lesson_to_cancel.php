@@ -12,10 +12,10 @@
 			</style>
 	</head>
 	<body>
-		<header><h1 style='text-align:center;'>講座管理</h1></header>
-		<p>キャンセルする講座を選択して下さい。<br>
-		あなたの情報はこの講座に関しては削除されます。<br>
-		他の講座をご希望の場合、そちらの情報は保持されていますのでご安心ください。<br>
+		<header><h1 style='text-align:center;'>研修管理</h1></header>
+		<p>キャンセルする研修を選択して下さい。<br>
+		あなたの情報はこの研修に関しては削除されます。<br>
+		他の研修をご希望の場合、そちらの情報は保持されていますのでご安心ください。<br>
 		キャンセルされた枠はキャンセル待ちの方に回されます。<br>
 		<?php
 			@$name = $_POST['name'];
@@ -48,7 +48,7 @@
 						print "<form action='cancel_this_lesson.php' method='POST'>\n";
 						print '<input type="hidden" name="applicant_id" value="'.$data[0].'" size="100" />';
 						print '<input type="hidden" name="event_id" value="'.$data[8].'" size="100" />';
-						print "<input type='submit' value='この講座をキャンセル' class='s2'/>\n";
+						print "<input type='submit' value='この研修をキャンセル' class='s2'/>\n";
 						print "</form>\n";
 						print "</div>\n";
 					}

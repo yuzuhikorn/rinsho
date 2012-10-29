@@ -14,8 +14,8 @@ border:1px #aaa solid;
 
 </head>
 <body>
-<header><h1 style='text-align:center;'>講座管理</h1></header>
-<p>情報を変更する講座を選択して下さい。
+<header><h1 style='text-align:center;'>研修管理</h1></header>
+<p>情報を変更する研修を選択して下さい。
 <?php
 	
 	include_once("./functions.php");
@@ -46,7 +46,7 @@ border:1px #aaa solid;
 				print "<div style='text-align:center;'>\n";
 				print "<form action='control_this_lesson.php' method='POST'>\n";
 				print "<input type='hidden' name='lesson_id_to_control' value='".$data[0]."' size='100' />";
-				print "<input type='submit' value='この講座の情報を変更' class='s2'/>\n";
+				print "<input type='submit' value='この研修の情報を変更' class='s2'/>\n";
 				print "</form>\n";
 				print "</div>\n";
 			}

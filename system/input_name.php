@@ -18,7 +18,7 @@ border:1px #aaa solid;
 </style>
 </head>
 <body>
-<header><h1 style='text-align:center;'>希望中の講座のキャンセル手続き</h1></header>
+<header><h1 style='text-align:center;'>希望中の研修のキャンセル手続き</h1></header>
 <p>お名前を入力して下さい。
 <?php
     print "<div style='text-align:center;'>\n";

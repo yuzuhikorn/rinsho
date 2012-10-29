@@ -89,7 +89,7 @@ function Checks(){
 </script>
 </head>
 <body>
-<header><h1 style='text-align:center;'>ご希望の講座</h1></header>
+<header><h1 style='text-align:center;'>ご希望の研修</h1></header>
 
 <?php
 	@$event_id = $_POST['event_id'];
@@ -126,7 +126,7 @@ function Checks(){
 	?>
 
 <div id="form_div" style='position:relative;left:325px;'>
-<form action="insert_new_applicant.php" method="POST" name="iform">
+<form action="confirm_applicant_information.php" method="POST" name="iform">
 お名前：<input type="text" name="name" size="50" /><br/>
 所属：<input type="text" name="laboratory" size="50" /><br/>
 返信用メールアドレス：<input type="text" name="mail" size="50" /><span class="attention" name="mail"></span><br/>

@@ -18,8 +18,8 @@ border:1px #aaa solid;
 </style>
 </head>
 <body>
-<header><h1 style='text-align:center;'>申込可能講座</h1></header>
-<p>参加したい講座を選択して下さい。
+<header><h1 style='text-align:center;'>申込可能研修</h1></header>
+<p>参加したい研修を選択して下さい。
 <?php
 	include_once("./functions.php");
 	connect_to_mysql("select * from test_event");
@@ -48,7 +48,7 @@ border:1px #aaa solid;
 				print "<div style='text-align:center;'>\n";
 				print "<form action='check_over.php' method='POST'>\n";
 				print "<input type='hidden' name='event_id' value='".$data[0]."' size='100' />";
-				print "<input type='submit' value='この講座に申し込み'/>\n";
+				print "<input type='submit' value='この研修に申し込み'/>\n";
 				print "</form>\n";
 				print "</div>\n";
 				print "<br>";

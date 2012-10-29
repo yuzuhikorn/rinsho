@@ -13,7 +13,7 @@ border:1px #aaa solid;
 
 </head>
 <body>
-<header><h1 style='text-align:center;'>この講座の情報を変更</h1></header>
+<header><h1 style='text-align:center;'>この研修の情報を変更</h1></header>
 <p>情報を変更し、「変更」ボタンを押して下さい。
 <?php
 	$lesson_id_to_control = $_POST["lesson_id_to_control"];
