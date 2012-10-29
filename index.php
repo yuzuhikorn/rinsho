@@ -3,7 +3,7 @@
 require('./wp_log/wp-load.php');
 
 $paged = get_query_var( 'paged' );
-query_posts('posts_per_page=2&paged='.$paged);
+query_posts('cat=5&posts_per_page=4&paged='.$paged);
 ?>
 
 
