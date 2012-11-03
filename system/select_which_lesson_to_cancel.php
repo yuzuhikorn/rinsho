@@ -20,11 +20,13 @@
 		<?php
 			@$name = $_POST['name'];
 			include_once("./functions.php");
-			connect_to_mysql("select * from test_applicant INNER JOIN test_event ON test_applicant.applicated_event_id=test_event.event_id where test_applicant.name='".$name."'");
+			connect_to_mysql("select * from applicant INNER JOIN lesson ON applicant.applicated_lesson_id=lesson.lesson_id where applicant.name='".$name."'");
 			
 			$num_rows = mysql_num_rows($res);
 			
-			if(@$num = mysql_num_fields($res)){
+		$num_rows = mysql_num_rows($res);
+	
+	if(@$num = mysql_num_fields($res)){
 				for($num_rows; $num_rows>0; $num_rows--){
 					
 					while(@$data = mysql_fetch_row($res)){
@@ -46,8 +48,9 @@
 						
 						print "<div style='text-align:center;'>\n";
 						print "<form action='cancel_this_lesson.php' method='POST'>\n";
-						print '<input type="hidden" name="applicant_id" value="'.$data[0].'" size="100" />';
-						print '<input type="hidden" name="event_id" value="'.$data[8].'" size="100" />';
+						print '<input type="hidden" name="applicant_id" value="'.$data[0].'">';
+						print '<input type="hidden" name="lesson_id" value="'.$data[8].'">';
+						print '<input type="hidden" name="status" value=1>';
 						print "<input type='submit' value='この研修をキャンセル' class='s2'/>\n";
 						print "</form>\n";
 						print "</div>\n";

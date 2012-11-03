@@ -1,7 +1,7 @@
 <?php
 	if ($_POST) {
 		
-		@$event_name = $_POST['event_name'];
+		@$lesson_name = $_POST['lesson_name'];
 		
 		@$start_month=$_POST['start_month'];
 		@$start_day=$_POST['start_day'];
@@ -17,12 +17,12 @@
 		@$place = $_POST['place'];
 		@$fee = $_POST['fee'];
 		
-		$start=date("Y").'-'.$start_month.'-'.$start_day.' '.$start_hour.':'.$start_minute.':00';
-		$finish=date("Y").'-'.$finish_month.'-'.$finish_day.' '.$finish_hour.':'.$finish_minute.':00';
+		$start=date("Y").'-'.$start_month.'-'.$start_day.' '.$start_hour.':'.$start_minute;
+		$finish=date("Y").'-'.$finish_month.'-'.$finish_day.' '.$finish_hour.':'.$finish_minute;
 		
 		
 		include_once("./functions.php");
-		connect_to_mysql('insert into test_event (event_name,start,finish,teacher,laboratory,place,fee) values ("'.$event_name.'","'.$start.'","'.$finish.'","'.$teacher.'","'.$laboratory.'","'.$place.'","'.$fee.'")');
+		connect_to_mysql('insert into lesson (lesson_name,start,finish,teacher,laboratory,place,fee) values ("'.$lesson_name.'","'.$start.'","'.$finish.'","'.$teacher.'","'.$laboratory.'","'.$place.'","'.$fee.'")');
 		
 		
 		

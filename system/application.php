@@ -92,10 +92,10 @@ function Checks(){
 <header><h1 style='text-align:center;'>ご希望の研修</h1></header>
 
 <?php
-	@$event_id = $_POST['event_id'];
+	@$lesson_id = $_POST['lesson_id'];
 	
 	include_once("./functions.php");
-	connect_to_mysql("select * from test_event where event_id='".$event_id."'");
+	connect_to_mysql("select * from lesson where lesson_id='".$lesson_id."'");
 	
 	$num_rows = mysql_num_rows($res);
 	
@@ -132,7 +132,7 @@ function Checks(){
 返信用メールアドレス：<input type="text" name="mail" size="50" /><span class="attention" name="mail"></span><br/>
 資格：<input type="text" name="licence" size="50" /><br/>
 経験年数：<input type="text" name="years_of_experience" size="50" /><span class="attention" name="years_of_experience"></span><br/>
-<input type="hidden" name="applicated_event_id" value=<?php echo $event_id ?> size="50" /><br/>
+<input type="hidden" name="applicated_lesson_id" value=<?php echo $lesson_id ?> size="50" /><br/>
 
 <input type="submit" onClick="return Checks()" value="申し込み" class="s2"/>
 </form>

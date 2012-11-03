@@ -22,7 +22,7 @@ border:1px #aaa solid;
 <p>参加したい研修を選択して下さい。
 <?php
 	include_once("./functions.php");
-	connect_to_mysql("select * from test_event");
+	connect_to_mysql("select * from lesson");
 	
 	$num_rows = mysql_num_rows($res);
 	
@@ -40,14 +40,18 @@ border:1px #aaa solid;
 					print "</td>";
 					
 					print "<td width='500'>";
-					print $data[$j];
+					if(($j==2 || $j==3) && $data[8]==1){
+						print "中止";
+					}else{
+						print $data[$j];
+					}
 					print "</td>";
 					print "</tr>\n";
 				}
 				print "</table>\n<br>\n";
 				print "<div style='text-align:center;'>\n";
 				print "<form action='check_over.php' method='POST'>\n";
-				print "<input type='hidden' name='event_id' value='".$data[0]."' size='100' />";
+				print "<input type='hidden' name='lesson_id' value='".$data[0]."' size='100' />";
 				print "<input type='submit' value='この研修に申し込み'/>\n";
 				print "</form>\n";
 				print "</div>\n";

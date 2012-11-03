@@ -3,7 +3,7 @@
 	
 	
 	include_once("./functions.php");
-	connect_to_mysql('select test_applicant.name,mail,applicated_event_name,start,finish from test_applicant INNER JOIN test_event ON test_applicant.applicated_event_name=test_event.event_name where test_applicant.applicated_event_name= ANY(select event_name from test_event where start<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND AND
+	connect_to_mysql('select applicant.name,mail,applicated_lesson_name,start,finish from applicant INNER JOIN lesson ON applicant.applicated_lesson_name=lesson.lesson_name where applicant.applicated_lesson_name= ANY(select lesson_name from lesson where start<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND AND
 					 start<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND + INTERVAL "1" DAY )');
 	
 	if ($res) echo "ok";

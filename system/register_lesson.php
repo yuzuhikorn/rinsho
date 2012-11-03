@@ -8,7 +8,7 @@
 			<!--
 			// 数値のみを入力可能にする
 			function numOnly() {
-				m = String.fromCharCode(event.keyCode);
+				m = String.fromCharCode(lesson.keyCode);
 				if("0123456789\b\r".indexOf(m, 0) < 0) return false;
 				return true;
 			}
@@ -31,7 +31,7 @@
 		<p>既存の研修の希望者も確認できます。
 		<div style="text-align:center;">
 			<form action="confirm_lesson_information.php" method="POST"><br>
-			研修名：<input type="text" name="event_name" size="100" /><br/>
+			研修名：<input type="text" name="lesson_name" size="100" /><br/>
 			<?php
 				print "日時:<select name='start_month'>";
 				print "<option value=''>-月</option>";
@@ -82,10 +82,10 @@
 				}
 				print "</select> ";
 	
-				print "<select name='finish_munute'>";
+				print "<select name='finish_minute'>";
 				print "<option value=''>-分</option>";
-				for($finish_munute_number=0;$finish_munute_number<=59;$finish_munute_number++){
-					print "'<option value=".$finish_munute_number.">".$finish_munute_number."分</option>'";
+				for($finish_minute_number=0;$finish_minute_number<=59;$finish_minute_number++){
+					print "'<option value=".$finish_minute_number.">".$finish_minute_number."分</option>'";
 				}
 				print "</select><br>";
 				?>
@@ -98,11 +98,13 @@
 		</form>
 		<?php
 			include_once("./functions.php");
-			connect_to_mysql("select * from test_event");
+			connect_to_mysql("select * from lesson");
 
 			$num_rows = mysql_num_rows($res);
 	
-			if(@$num = mysql_num_fields($res)){
+		$num_rows = mysql_num_rows($res);
+	
+	if(@$num = mysql_num_fields($res)){
 				for($num_rows; $num_rows>0; $num_rows--){
 					while(@$data = mysql_fetch_row($res)){
 						print "<table style='margin:auto;'>\n";

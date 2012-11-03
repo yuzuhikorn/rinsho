@@ -13,31 +13,18 @@ border:1px #aaa solid;
 </head>
 <body>
 <header>
-<h1 style='text-align:center;'>申込可能講座</h1></header>
+<h1 style='text-align:center;'>本研修希望者</h1></header>
 
 <?php
-	include_once ('./server_config.php');
 	$applicated_lesson_id = $_POST["applicated_lesson_id"];
-	$data1 = "select * from test_applicant where applicated_event_id='".$applicated_lesson_id."'";
 	
-	$link = mysql_connect($sql_server, $sql_user, $sql_pw);
-	if (!$link) {
-		die('failed' . mysql_error());
-	}
-	
-	mysql_query("SET NAMES utf8",$link);
-	
-	$selecteddb = mysql_select_db($sql_db, $link);
-	
-	$strsql = $data1;
-	$res = mysql_query($strsql, $link);
-	if(!$res){
-		print mysql_errno($link) . ": " . mysql_error($link);
-	}
+	include_once("./functions.php");
+	connect_to_mysql("select * from applicant where applicated_lesson_id='".$applicated_lesson_id."'");
 	
 	$num_rows = mysql_num_rows($res);
 	
 	if(@$num = mysql_num_fields($res)){
+		print '<form action="check_deposit.php" method="POST">';
 		for($num_rows; $num_rows>0; $num_rows--){
 			while(@$data = mysql_fetch_row($res)){
 				print "<table style='margin:auto;'>\n";
@@ -53,24 +40,34 @@ border:1px #aaa solid;
 				}
 				print "</table>\n<br>\n";
 				print "<div style='text-align:center;'>\n";
-				print '<form action="mail_to_request_to_deposit_in_the_bank.php" method="POST">';
-				print '<input type="hidden" name="name" value="'.$data[0].'" size="100" />';
-				print '<input type="hidden" name="mail" value="'.$data[2].'" size="100" />';
-				print '<input type="hidden" name="applicated_event_id" value="'.$data[5].'" size="100" />';
 				
-				print '<input type="submit" value="この受講希望者にメール" class="s2"/>';
-				print '</form>';
+				print '<input type="hidden" name="status" value=3>';
+				print '<input type="hidden" name="lesson_id" value="'.$applicated_lesson_id.'">';
+				print '入金あり<input type="checkbox" name="applicant_id[]" value="'.$data[0].'">';
+				print '<input type="button" onClick="cancel('.$data[0].')" value="キャンセル">';
 				
-				print "</div>\n";
 				print "<br>";
 			}
 		}
+		print '<input type="submit" value="入金情報確定">';
+		print '</form>';
+		
+		print '<form action="cancel_this_lesson.php" method="POST" name="form1">';
+		print '<input type="hidden" name="status" value=1>';
+		print '<input type="hidden" name="lesson_id" value="'.$applicated_lesson_id.'">';
+		print '<input type="hidden" name="applicant_id">';
+		print '</form>';
+		print "</div>\n";
 	}
-	
-	$data1 = null;
-	
-	
 	?>
-
+<script language="JavaScript" type="text/javascript">
+<!--
+function cancel($value){
+	alert("キャンセルします。");
+	document.form1.applicant_id.value = $value;
+	document.form1.submit();
+}
+//-->
+</script>
 </body>
 </html>
