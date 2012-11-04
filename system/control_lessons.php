@@ -19,7 +19,7 @@ border:1px #aaa solid;
 <?php
 	
 	include_once("./functions.php");
-	connect_to_mysql("select * from test_event");
+	connect_to_mysql("select * from lesson");
 	
 	$num_rows = mysql_num_rows($res);
 	

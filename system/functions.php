@@ -3,7 +3,7 @@
 *MySQLに接続し、SQLを実行する。
 *$sqlを引数とする。
 *$sqlにはSQL文が代入される。
-*自由度を上げる為にmysql_close(PHPリファレンスを参照。mysqlとの接続を切断する。必須。)を本関数ないでは実行していない。別途実行する必要がある。
+*実行可能なSQL文は1つだけで、MySQLへの接続はこの関数の実行毎に切断されるので、多くのSQLを実行したい状況ではレスポンスが悪くなる恐れがある。
 */
 	function connect_to_mysql($sql/*実行するSQL*/){		/*mysql_close($link);を忘れるな!*/
 		global $link;

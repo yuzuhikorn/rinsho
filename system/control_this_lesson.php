@@ -19,7 +19,7 @@ border:1px #aaa solid;
 	$lesson_id_to_control = $_POST["lesson_id_to_control"];
 	
 	include_once("./functions.php");
-	connect_to_mysql("select * from test_event where event_id='".$lesson_id_to_control."'");
+	connect_to_mysql("select * from lesson where lesson_id='".$lesson_id_to_control."'");
 	
 	$num_rows = mysql_num_rows($res);
 	
@@ -44,7 +44,7 @@ border:1px #aaa solid;
 						$month = date("m", strtotime($time));
 						$day = date("d", strtotime($time));
 						$hour = date("H", strtotime($time));
-						$minute = date("M", strtotime($time));
+						$minute = date("i", strtotime($time));
 						
 						print "<select name='".mysql_field_name($res, $j)."_month'>";
 						print "<option value=''>-月</option>";

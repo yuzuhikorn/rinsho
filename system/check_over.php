@@ -1,15 +1,15 @@
 <?php
 if ($_POST) {
 
-@$event_id = $_POST['event_id'];
+@$lesson_id = $_POST['lesson_id'];
 
 include_once("./functions.php");
 
-connect_to_mysql ("select event_name from test_event where event_id='".$event_id."'");
+connect_to_mysql ("select lesson_name from lesson where lesson_id='".$lesson_id."'");
 $row = mysql_fetch_assoc($res);
-$applicated_event_name=$row['event_name'];
+$applicated_lesson_name=$row['lesson_name'];
 
-connect_to_mysql("select count(status) from test_applicant where status=0 and applicated_event_id='".$event_id."'");
+connect_to_mysql("select count(status) from applicant where status=0 and applicated_lesson_id='".$lesson_id."'");
 
 $row = mysql_fetch_assoc($res);
 
@@ -34,7 +34,7 @@ font-family: '平成角ゴシック';
 <body>
 
 <form action=<?php echo $go_to?> method="POST" name="postForm">
-<input type="hidden" name="event_id" value=<?php echo $event_id ?> />
+<input type="hidden" name="lesson_id" value=<?php echo $lesson_id ?> />
 </form>
 
 </body>
