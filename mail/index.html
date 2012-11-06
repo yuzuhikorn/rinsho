@@ -22,13 +22,42 @@
 <h1>mail</h1>
 <p>&nbsp;</p>
 
+<FORM action=*** method=POST >
+
+<INPUT type="hidden" name="mailto" value="送信先のメールアドレス(必須)">
+<INPUT type="hidden" name="subject" value="送信されるメールのタイトル">
+<INPUT type="hidden" name="location" value="mail_ok.html">
+
+
+<TABLE border="0">
+
+<TR>
+<TD>名前</TD>
+<TD><INPUT name="name"size="30"></TD>
+</TR>
+
+<TR>
+<TD>メールアドレス</TD>
+<TD><INPUT name="email"size="30"></TD>
+</TR>
+
+<TR>
+<TD>本文</TD>
+<TD><TEXTAREA name="comment"rows="15" cols="50"></TEXTAREA></TD>
+</TR>
+
+</TABLE>
+
 <div id="center">
-<p>送信完了しました。</p>
-<br>
-<p><a href="../index.html">TOPへもどる</a></p>
+<P>
+<INPUT type="submit" value="送信">
+<INPUT type="reset" value="リセット">
+</P>
 </div>
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</FORM>
   <footer>
  <table border="0" width="950px" cellpadding="0">
   <tr>
