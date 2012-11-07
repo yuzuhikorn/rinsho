@@ -21,7 +21,7 @@
 		$finish=date("Y").'-'.$finish_month.'-'.$finish_day.' '.$finish_hour.':'.$finish_minute.':00';
 		
 		include_once("./functions.php");
-		connect_to_mysql("update lesson set lesson_name='".$lesson_name."',start='".$start."',finish='".$finish."',teacher='".$teacher."',laboratory='".$laboratory."',place='".$place."',fee='".$fee."' where lesson_name='".$lesson_name."'");
+		connect_to_mysql("update lesson set 研修名='".$lesson_name."',開始日時='".$start."',終了日時='".$finish."',講師='".$teacher."',講師所属='".$laboratory."',会場='".$place."',料金='".$fee."' where 研修名='".$lesson_name."'");
 		
 			if(!$res){
 				mysql_query( "rollback", $link);

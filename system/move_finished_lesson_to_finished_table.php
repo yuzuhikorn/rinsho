@@ -1,6 +1,6 @@
 <?php
 	include_once("./functions.php");
-	connect_to_mysql("insert into finished_lesson select * from lesson where finish < NOW()");
+	connect_to_mysql("insert into finished_lesson select * from lesson where 終了日時 < NOW()");
 	if(!$res){
 		mysql_query( "rollback", $link);
 		mysql_close($link);
@@ -8,7 +8,7 @@
 	}else{
 		mysql_query( "commit", $link);
 		mysql_close($link);
-		connect_to_mysql("delete from lesson where finish < NOW()");
+		connect_to_mysql("delete from lesson where 終了日時 < NOW()");
 		if(!$res){
 			mysql_query( "rollback", $link);
 			mysql_close($link);

@@ -96,7 +96,7 @@ session_start();
 	@$lesson_id =$_SESSION['lesson_id'];;
 	
 	include_once("./functions.php");
-	connect_to_mysql("select * from lesson where lesson_id='".$lesson_id."'");
+	connect_to_mysql("select * from lesson where 研修ID='".$lesson_id."'");
 	
 	$num_rows = mysql_num_rows($res);
 	

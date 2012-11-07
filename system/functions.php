@@ -32,7 +32,7 @@
 	 *本コメント執筆時(2012/10/24)は、この関数を実行するphpファイルに直接上記のメールタイトル〜メール本文が記述してある。この形式だとメールタイトル〜メール本文の変更が難しく、改善の余地がある。
 	 */
 	function mail_to_applicant($to/*送信先メールアドレス*/, $subject/*メールタイトル*/, $message/*メール本文*/)
-	{       //$subject/*メールタイトル*/,$mailto/*送信先メールアドレス*/,$mailfrom/*送信元メールアドレス*/,$mailfromname/*送信主表示名*/,$body/*メール本文*/)
+	{
 		mb_language("ja");
 		mb_internal_encoding("UTF-8");
 		

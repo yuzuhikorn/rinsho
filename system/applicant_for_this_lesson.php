@@ -19,7 +19,7 @@ border:1px #aaa solid;
 	$applicated_lesson_id = $_POST["applicated_lesson_id"];
 	
 	include_once("./functions.php");
-	connect_to_mysql("select * from applicant where applicated_lesson_id='".$applicated_lesson_id."'");
+	connect_to_mysql("select * from applicant where 希望研修ID='".$applicated_lesson_id."'");
 	
 	$num_rows = mysql_num_rows($res);
 	print '<form action="check_deposit.php" method="POST">';

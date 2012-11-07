@@ -22,7 +22,7 @@
 		
 		
 		include_once("./functions.php");
-		connect_to_mysql('insert into lesson (lesson_name,start,finish,teacher,laboratory,place,fee) values ("'.$lesson_name.'","'.$start.'","'.$finish.'","'.$teacher.'","'.$laboratory.'","'.$place.'","'.$fee.'")');
+		connect_to_mysql('insert into lesson (研修名,開始日時,終了日時,講師,講師所属,会場,料金) values ("'.$lesson_name.'","'.$start.'","'.$finish.'","'.$teacher.'","'.$laboratory.'","'.$place.'","'.$fee.'")');
 		
 		
 		

@@ -3,8 +3,7 @@
 	
 	
 	include_once("./functions.php");
-	connect_to_mysql('select applicant.name,mail,applicated_lesson_name,start,finish from applicant INNER JOIN lesson ON applicant.applicated_lesson_name=lesson.lesson_name where applicant.applicated_lesson_name= ANY(select lesson_name from lesson where start<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND AND
-					 start<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND + INTERVAL "1" DAY )');
+	connect_to_mysql('select applicant.名前,メール,希望研修ID,開始日時,終了日時 from applicant INNER JOIN lesson ON applicant.applicated_lesson_name=lesson.研修名 where applicant.希望研修ID= ANY(select 研修ID from lesson where 開始日時<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND AND 開始日時<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND + INTERVAL "1" DAY )');
 	
 	if ($res) echo "ok";
 	

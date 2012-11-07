@@ -31,12 +31,11 @@ border:1px #aaa solid;
 		print "<header><h1 style='text-align:center;'>申込み情報確認</h1></header>";
 		print "<p>この情報で登録します。";
 		print "<table style='margin:auto;'>";
-		print "<tr><td bgcolor='lightpink' width='200'>name</td><td width='500'>".$name."</td></tr>";
-		print "<tr><td bgcolor='lightpink' width='200'>laboratory</td><td width='500'>".$laboratory."</td></tr>";
-		print "<tr><td bgcolor='lightpink' width='200'>mail</td><td width='500'>".$mail."</td></tr>";
-		print "<tr><td bgcolor='lightpink' width='200'>licence</td><td width='500'>".$licence."</td></tr>";
-		print "<tr><td bgcolor='lightpink' width='200'>years_of_experience</td><td width='500'>".$years_of_experience."</td></tr>";
-		print "<tr><td bgcolor='lightpink' width='200'>applicated_lesson_id</td><td width='500'>".$applicated_lesson_id."</td></tr>";
+		print "<tr><td bgcolor='lightpink' width='200'>名前</td><td width='500'>".$name."</td></tr>";
+		print "<tr><td bgcolor='lightpink' width='200'>所属</td><td width='500'>".$laboratory."</td></tr>";
+		print "<tr><td bgcolor='lightpink' width='200'>メール</td><td width='500'>".$mail."</td></tr>";
+		print "<tr><td bgcolor='lightpink' width='200'>資格</td><td width='500'>".$licence."</td></tr>";
+		print "<tr><td bgcolor='lightpink' width='200'>経験年数</td><td width='500'>".$years_of_experience."</td></tr>";
 		print "</table>";
 		
 		print "<div style='text-align:center;'>\n";

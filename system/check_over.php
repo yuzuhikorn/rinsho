@@ -5,19 +5,19 @@
 		
 		include_once("./functions.php");
 		
-		connect_to_mysql ("select lesson_name from lesson where lesson_id='".$lesson_id."'");
+		connect_to_mysql ("select 研修名 from lesson where 研修ID='".$lesson_id."'");
 		$row = mysql_fetch_assoc($res);
 		$applicated_lesson_name=$row['lesson_name'];
 		
-		connect_to_mysql("select count(status) from applicant where status=0 and applicated_lesson_id='".$lesson_id."'");
+		connect_to_mysql("select count(状態) from applicant where 状態=0 and 希望研修ID='".$lesson_id."'");
 		
 		$row = mysql_fetch_assoc($res);
 		session_start();
 		$_SESSION['lesson_id']=$lesson_id;
-		if($row["count(status)"]<3){
+		if($row["count(状態)"]<3){
 				header("Location: ./application.php");
 			}else{
-				header("Location: ./over.html");
+				header("Location: ./over.php");
 			}
 		}
 	?>

@@ -20,7 +20,7 @@
 		<?php
 			@$name = $_POST['name'];
 			include_once("./functions.php");
-			connect_to_mysql("select * from applicant INNER JOIN lesson ON applicant.applicated_lesson_id=lesson.lesson_id where applicant.name='".$name."'");
+			connect_to_mysql("select * from applicant INNER JOIN lesson ON applicant.希望研修ID=lesson.研修ID where applicant.name='".$name."'");
 			
 			$num_rows = mysql_num_rows($res);
 			
