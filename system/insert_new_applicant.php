@@ -34,7 +34,7 @@
 				mysql_close($link);
 				
 				$body=$name."様へ\n研修『".$applicated_lesson_name."』への申し込みありがとう御座います。\n◯◯◯◯◯への入金をよろしくお願い致します。";
-				mail_to_applicant("参加申し込み受理",$mail,"tyehai2@gmail.com","tyehai2",$body);
+				mail_to_applicant($mail,"参加申し込み受理",$body);
 				header("Location: ./compleate.html");
 			}
 			
@@ -50,7 +50,7 @@
 				mysql_close($link);
 				
 				$body=$name."様へ\nキャンセル待ちとして登録させていただきました。\n現在参加予定の方がキャンセルされた場合、お知らせいたします。".$row['mail'];
-				mail_to_applicant("定員オーバー",$mail,"tyehai2@gmail.com","tyehai2",$body);
+				mail_to_applicant($mail,"定員オーバー",$body);
 				header("Location: ./compleate.html");
 			print "compleate?";
 			}
