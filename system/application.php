@@ -92,7 +92,8 @@ function Checks(){
 <header><h1 style='text-align:center;'>ご希望の研修</h1></header>
 
 <?php
-	@$lesson_id = $_POST['lesson_id'];
+session_start();
+	@$lesson_id =$_SESSION['lesson_id'];;
 	
 	include_once("./functions.php");
 	connect_to_mysql("select * from lesson where lesson_id='".$lesson_id."'");
