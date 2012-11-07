@@ -13,7 +13,7 @@
 		
 		connect_to_mysql ("select 研修名 from lesson where 研修ID='".$applicated_lesson_id."'");
 		$row = mysql_fetch_assoc($res);
-		$applicated_lesson_name=$row['lesson_name'];
+		$applicated_lesson_name=$row['研修名'];
 		mysql_query( "commit", $link);
 		mysql_close($link);
 		
@@ -49,10 +49,9 @@
 				mysql_query( "commit", $link);
 				mysql_close($link);
 				
-				$body=$name."様へ\nキャンセル待ちとして登録させていただきました。\n現在参加予定の方がキャンセルされた場合、お知らせいたします。".$row['mail'];
+				$body=$name."様へ\nキャンセル待ちとして登録させていただきました。\n現在参加予定の方がキャンセルされた場合、お知らせいたします。";
 				mail_to_applicant($mail,"定員オーバー",$body);
 				header("Location: ./compleate.html");
-			print "compleate?";
 			}
 		}
 	}

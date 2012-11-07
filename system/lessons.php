@@ -58,5 +58,8 @@ this frame prevents back forward cache
 </iframe>
 <!--safari用キャシュ無効化(機能せず?)-->
 
+　<div style="float:right; position:relative; right:100px;">
+<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+</div>
 </body>
 </html>

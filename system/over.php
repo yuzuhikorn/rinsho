@@ -20,6 +20,8 @@
 			print "<input type='submit' value='キャンセル待ちとして登録'/>\n";
 			print "</form>\n";
 			?>
-		<a href ="./index.html">戻る</a>
-	</body>
+<div style="float:right; position:relative; right:100px;">
+<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+</div>
+</body>
 </html>

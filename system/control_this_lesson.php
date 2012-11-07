@@ -19,7 +19,7 @@ border:1px #aaa solid;
 	$lesson_id_to_control = $_POST["lesson_id_to_control"];
 	
 	include_once("./functions.php");
-	connect_to_mysql("select * from lesson where lesson_id='".$lesson_id_to_control."'");
+	connect_to_mysql("select * from lesson where 研修ID='".$lesson_id_to_control."'");
 	
 	$num_rows = mysql_num_rows($res);
 	
@@ -116,5 +116,8 @@ border:1px #aaa solid;
 	
 	?>
 
+　<div style="float:right; position:relative; right:100px;">
+<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+</div>
 </body>
 </html>

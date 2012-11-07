@@ -69,7 +69,7 @@ border:1px #aaa solid;
 		print '</form>';
 		
 		print '<form action="change_applicant_status.php" method="POST" name="form1">';
-		print '<input type="hidden" name="status" value=3>';
+		print '<input type="hidden" name="status" value=1>';
 		print '<input type="hidden" name="lesson_id" value="'.$applicated_lesson_id.'">';
 		print '<input type="hidden" name="applicant_id">';
 		print '</form>';
@@ -79,11 +79,18 @@ border:1px #aaa solid;
 <script language="JavaScript" type="text/javascript">
 <!--
 function cancel($value){
-	alert("キャンセルします。");
+	var res = confirm("キャンセルします。");
+	if( res == true ) {
 	document.form1.applicant_id.value = $value;
 	document.form1.submit();
+	}
+
+	
 }
 //-->
 </script>
+　<div style="float:right; position:relative; right:100px;">
+<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+</div>
 </body>
 </html>

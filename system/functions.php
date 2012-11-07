@@ -40,10 +40,6 @@
 		'From: '.mb_encode_mimeheader("臨床運動研究会").' <tyehai2@gmial.com>' . "\r\n" .
 		'Reply-To: tyehai2@gmail.com' . "\r\n" .
 		'X-Mailer: PHP/' . phpversion();
-		if(mb_send_mail($to, $subject, $message, $header)){
-			print "success";
-		}else{
-			print "failed";
-		}
+		mb_send_mail($to, $subject, $message, $header);
 	}
 	?>

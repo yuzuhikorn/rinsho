@@ -7,7 +7,7 @@
 		
 		connect_to_mysql ("select 研修名 from lesson where 研修ID='".$lesson_id."'");
 		$row = mysql_fetch_assoc($res);
-		$applicated_lesson_name=$row['lesson_name'];
+		$applicated_lesson_name=$row['研修名'];
 		
 		connect_to_mysql("select count(状態) from applicant where 状態=0 and 希望研修ID='".$lesson_id."'");
 		
