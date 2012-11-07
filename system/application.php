@@ -103,7 +103,7 @@ session_start();
 	if(@$num = mysql_num_fields($res)){
 		print "<table style='margin:auto; border:hidden;'>\n";
 		print "<tr bgcolor=\"lightpink\">";
-		for($i = 0; $i < $num; $i++){
+		for($i = 1; $i < $num-1; $i++){
 			print "<td>";
 			print mysql_field_name($res, $i);
 			print "</td>";
@@ -111,7 +111,7 @@ session_start();
 		print "</tr>\n";
 		while(@$data = mysql_fetch_row($res)){
 			print "<tr>";
-			for($j = 0; $j < $num; $j++){
+			for($j = 1; $j < $num-1; $j++){
 				print "<td>";
 				print $data[$j];
 				print "</td>";
