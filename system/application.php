@@ -101,26 +101,25 @@ session_start();
 	$num_rows = mysql_num_rows($res);
 	
 	if(@$num = mysql_num_fields($res)){
-		for($num_rows; $num_rows>0; $num_rows--){
-			
-			while(@$data = mysql_fetch_row($res)){
-				print "<table style='margin:auto;'>\n";
-				for($j = 0; $j < $num; $j++){
-					print "<tr>";
-					
-					print "<td bgcolor=\"lightpink\" width='200'>";
-					print mysql_field_name($res, $j);
-					print "</td>";
-					
-					print "<td width='500'>";
-					print $data[$j];
-					print "</td>";
-					print "</tr>\n";
-				}
-				print "</table>\n<br>\n";
-				print "<br>";
-			}
+		print "<table style='margin:auto; border:hidden;'>\n";
+		print "<tr bgcolor=\"lightpink\">";
+		for($i = 0; $i < $num; $i++){
+			print "<td>";
+			print mysql_field_name($res, $i);
+			print "</td>";
 		}
+		print "</tr>\n";
+		while(@$data = mysql_fetch_row($res)){
+			print "<tr>";
+			for($j = 0; $j < $num; $j++){
+				print "<td>";
+				print $data[$j];
+				print "</td>";
+			}
+			print "</tr>\n";
+		}
+		print "</table>\n";
+		print "<br>";
 	}
 	
 	

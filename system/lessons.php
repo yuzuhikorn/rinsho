@@ -24,40 +24,32 @@ border:1px #aaa solid;
 	include_once("./functions.php");
 	connect_to_mysql("select * from lesson");
 	
-	$num_rows = mysql_num_rows($res);
-	
 	if(@$num = mysql_num_fields($res)){
-		for($num_rows; $num_rows>0; $num_rows--){
-			
-			while(@$data = mysql_fetch_row($res)){
-				print "<table style='margin:auto;'>\n";
-				
-				for($j = 0; $j < $num; $j++){
-					print "<tr>";
-					
-					print "<td bgcolor=\"lightpink\" width='200'>";
-					print mysql_field_name($res, $j);
-					print "</td>";
-					
-					print "<td width='500'>";
-					if(($j==2 || $j==3) && $data[8]==1){
-						print "中止";
-					}else{
-						print $data[$j];
-					}
-					print "</td>";
-					print "</tr>\n";
-				}
-				print "</table>\n<br>\n";
-				print "<div style='text-align:center;'>\n";
-				print "<form action='check_over.php' method='POST'>\n";
-				print "<input type='hidden' name='lesson_id' value='".$data[0]."' size='100' />";
-				print "<input type='submit' value='この研修に申し込み'/>\n";
-				print "</form>\n";
-				print "</div>\n";
-				print "<br>";
-			}
+		print "<table style='margin:auto; border:hidden;'>\n";
+		print "<tr bgcolor=\"lightpink\">";
+		for($i = 0; $i < $num; $i++){
+			print "<td>";
+			print mysql_field_name($res, $i);
+			print "</td>";
 		}
+		print "</tr>\n";
+		while(@$data = mysql_fetch_row($res)){
+			print "<tr>";
+			for($j = 0; $j < $num; $j++){
+				print "<td>";
+				print $data[$j];
+				print "</td>";
+			}
+			print "<td style='border:hidden'>";
+			print "<form action='check_over.php' method='POST'>\n";
+			print "<input type='hidden' name='lesson_id' value='".$data[0]."' size='100' />";
+			print "<input type='submit' value='この研修に申し込み'/>\n";
+			print "</form>\n";
+			print "</td>";
+			print "</tr>\n";
+			
+		}
+		print "</table>\n";
 	}
 	?>
 <!--safari用キャシュ無効化(機能せず?)-->
