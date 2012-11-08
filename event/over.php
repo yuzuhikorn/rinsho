@@ -18,7 +18,7 @@ color:#fff;
 <header>
 <img src="../img/header.png" alt="header">
 <ul id="nav">
-<li><a href="../index.html">Home</a></li>
+<li><a href="../index.php">HOME</a></li>
 <li><a href="../staff/index.html">Staff</a></li>
 <li><a href="./index.php">Event</a></li>
 <li><a href="../log/">Log</a></li>
