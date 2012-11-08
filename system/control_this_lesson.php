@@ -21,12 +21,9 @@ border:1px #aaa solid;
 	include_once("./functions.php");
 	connect_to_mysql("select * from lesson where 研修ID='".$lesson_id_to_control."'");
 	
-	$num_rows = mysql_num_rows($res);
-	
 	if(@$num = mysql_num_fields($res)){
 		
 		print "<form action='update_this_lesson.php' method='POST'>";
-		for($num_rows; $num_rows>0; $num_rows--){
 			while(@$data = mysql_fetch_row($res)){
 				print "<table style='margin:auto;'>\n";
 				
@@ -39,7 +36,7 @@ border:1px #aaa solid;
 					
 					print "<td width='500'>";
 					
-					if(mysql_field_name($res, $j)=="start"||mysql_field_name($res, $j)=="finish"){
+					if(mysql_field_name($res, $j)=="開始日時"||mysql_field_name($res, $j)=="終了日時"){
 						$time = $data[$j];
 						$month = date("m", strtotime($time));
 						$day = date("d", strtotime($time));
@@ -108,7 +105,7 @@ border:1px #aaa solid;
 			}
 			
 			
-		}
+
 		
 	}
 	
@@ -117,7 +114,7 @@ border:1px #aaa solid;
 	?>
 
 　<div style="float:right; position:relative; right:100px;">
-<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+<a href="./control_lessons.php">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
 </div>
 </body>
 </html>

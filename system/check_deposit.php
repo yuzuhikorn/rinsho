@@ -1,4 +1,3 @@
-
 <?php
 	@$lesson_id = $_POST['lesson_id'];
 	@$status = $_POST['status'];

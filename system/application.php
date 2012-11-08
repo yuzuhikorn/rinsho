@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -93,12 +96,11 @@ function Checks(){
 
 <?php
 session_start();
-	@$lesson_id =$_SESSION['lesson_id'];;
+	@$lesson_id =$_SESSION['lesson_id'];
 	
 	include_once("./functions.php");
 	connect_to_mysql("select * from lesson where 研修ID='".$lesson_id."'");
 	
-	$num_rows = mysql_num_rows($res);
 	
 	if(@$num = mysql_num_fields($res)){
 		print "<table style='margin:auto; border:hidden;'>\n";
@@ -139,7 +141,7 @@ session_start();
 </div>
 
 　<div style="float:right; position:relative; right:100px;">
-<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+<a href="./lessons.php">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
 </div>
 </body>
 </html>

@@ -21,8 +21,6 @@ border:1px #aaa solid;
 	include_once("./functions.php");
 	connect_to_mysql("select * from lesson");
 	
-	$num_rows = mysql_num_rows($res);
-	
 	if(@$num = mysql_num_fields($res)){
 		print "<table style='margin:auto; border:hidden;'>\n";
 		print "<tr bgcolor=\"lightpink\">";
@@ -56,7 +54,7 @@ border:1px #aaa solid;
 	?>
 
 　<div style="float:right; position:relative; right:100px;">
-<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+<a href="./index.html">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
 </div>
 </body>
 </html>

@@ -21,7 +21,6 @@ border:1px #aaa solid;
 	include_once("./functions.php");
 	connect_to_mysql("select * from applicant where 希望研修ID='".$applicated_lesson_id."'");
 	
-	$num_rows = mysql_num_rows($res);
 	print '<form action="check_deposit.php" method="POST">';
 	print '<input type="hidden" name="status" value=3>';
 	print '<input type="hidden" name="lesson_id" value="'.$applicated_lesson_id.'">';
@@ -85,7 +84,7 @@ function cancel($value){
 //-->
 </script>
 　<div style="float:right; position:relative; right:100px;">
-<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+<a href="./register_lesson.php">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
 </div>
 </body>
 </html>

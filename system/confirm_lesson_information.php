@@ -70,7 +70,7 @@ border:1px #aaa solid;
 	}
 	?>
 　<div style="float:right; position:relative; right:100px;">
-<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+<a href="./register.php">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
 </div>
 </body>
 </html>
