@@ -30,7 +30,7 @@ border:1px #aaa solid;
 	?>
 <!--safari用キャシュ無効化(機能せず?)-->
 <iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
-this frame prevents back forward cache
+this frame prlessons back forward cache
 </iframe>
 <!--safari用キャシュ無効化(機能せず?)-->
 

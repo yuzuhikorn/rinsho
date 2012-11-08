@@ -74,7 +74,9 @@ header {
 }
 #contents {
    float: right;
-   width: 750px;     
+   width: 725px;
+   padding-bottom:15px;
+   padding-top:25px;
    }
 #menu{
 	float:left;
