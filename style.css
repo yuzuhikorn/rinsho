@@ -122,39 +122,56 @@ a img {
 }
 
 #main .notice{
-width: 425px;
+width: 405px;
+padding: 10px;
+float: left;
 }
 
-#main .notice h2{
+#main .new{
+width: 405px;
+padding: 10px;
+float: left;
+}
+
+#main .notice h2, .new h2{
 font-size: 25px;
 padding-left: 20px;
 border-bottom: dotted 2px;
 }
 
-#main .notice ul{
+#main .notice ul, .new ul{
 }
 
-#main .notice ul li{
+#main .notice ul li, .new ul li{
 list-style: none;
 padding: 5px 0px 0px 20px;
 border-bottom: dotted 1px;
 }
 
-#main .notice ul li a{
+#main .notice ul li a, .new ul li a{
 text-decoration: none;
 color: black;
 
 }
 
-#main .notice ul li .time{
+#main .notice ul li .time, .new ul li .time{
 font-size: 10px;
 }
 
+#main .new:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  font-size:0;
+  clear: both; 
+  visibility:hidden;
+}
+
 footer {
-   clear: both;      
-   width: 950px;
-   text-align: center;
-   padding-top: 20px;
+clear: both;      
+width: 950px;
+text-align: center;
+padding-top: 20px;
 }
 
 footer .banner{
