@@ -15,7 +15,7 @@ if(have_posts()) : while ( have_posts() ) : the_post();
 	<h2 class="p_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<div class="time"><?php the_time('Y年m月d日（D）'); ?></div>
 	<div class="body">
-		<?php the_content('more...'); ?>
+		<?php the_content('more'); ?>
 	</div>
 </div>
  

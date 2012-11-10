@@ -8,16 +8,19 @@ Template Name: 過去の研修会
 <div id="main">
 <?php get_sidebar(); ?>
 
+<h1>活動記録</h1>
+
 <div id="contents">
 <?php $paged = get_query_var( 'paged' ); ?>
-<?php query_posts('cat=4&posts_per_page=2&paged='.$paged) ?>
+<?php query_posts('cat=3&posts_per_page=2&paged='.$paged) ?>
 <?php
 if(have_posts()) : while ( have_posts() ) : the_post();
 ?>
  
 <div class="post">
-	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-	<?php $more=0 ;the_content(); ?>
+	<h2 class="p_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	<div class="time"><?php the_time('Y年m月d日（D）'); ?></div>
+	<div class="body"><?php $more=0 ;the_content('more'); ?></div>
 </div>
  
 <?php
