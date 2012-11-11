@@ -1,5 +1,14 @@
 <?php
 	session_start();
+	if(!$_SERVER[HTTP_REFERER]){
+		print "<!DOCTYPE HTML>
+		<html>
+		<meta charset='utf-8'><body>";
+		print "URL入力で直接来る事を禁止しています。<br>";
+		print "<a href='http://rinshoundoshogai.sakura.ne.jp'>http://rinshoundoshogai.sakura.ne.jp</a>からリンクを辿って来てください。";
+		print "</body></html>";
+		exit();
+	}
 	?>
 <!DOCTYPE HTML>
 <html>
@@ -10,7 +19,7 @@
 <style type="text/css">
 table,td,th{
 border:1px #aaa solid;
-    border-spacing:0px;
+	border-spacing:0px;
 }
 th{
 	background-color: #003333;
@@ -45,16 +54,20 @@ color:#fff;
 		@$mail = $_POST['mail'];
 		@$licence = $_POST['licence'];
 		@$years_of_experience = $_POST['years_of_experience'];
+		@$go_party = $_POST['go_party'];
 		@$applicated_lesson_id = $_POST['applicated_lesson_id'];
 		
-		print "<h1>申込み情報確認</h1>";
+		print "<h1>申込み情報確認</h1><br>";
 		print "<p>この情報で登録します。";
 		print "<table style='margin:auto;'>";
-		print "<tr><th width='200' nowrap>名前</th><td width='500'>".$name."</td></tr>";
-		print "<tr><th width='200' nowrap>所属</th><td width='500'>".$laboratory."</td></tr>";
-		print "<tr><th width='200' nowrap>メール</th><td width='500'>".$mail."</td></tr>";
-		print "<tr><th width='200' nowrap>資格</th><td width='500'>".$licence."</td></tr>";
-		print "<tr><th width='200' nowrap>経験年数</th><td width='500'>".$years_of_experience."</td></tr>";
+		print "<tr><th width='200' nowrap>名前</th><td bgcolor='white' width='500'>".$name."</td></tr>";
+		print "<tr><th width='200' nowrap>所属</th><td bgcolor='white' width='500'>".$laboratory."</td></tr>";
+		print "<tr><th width='200' nowrap>メール</th><td bgcolor='white' width='500'>".$mail."</td></tr>";
+		print "<tr><th width='200' nowrap>資格</th><td bgcolor='white' width='500'>".$licence."</td></tr>";
+		print "<tr><th width='200' nowrap>経験年数</th><td bgcolor='white' width='500'>".$years_of_experience."</td></tr>";
+		if($go_party=="する"){
+			print "<tr><th width='200' nowrap>懇親会に参加</th><td bgcolor='white' width='500'>".$go_party."</td></tr>";
+		}
 		print "</table>";
 		
 		print "<div style='text-align:center;'>\n";
@@ -64,6 +77,7 @@ color:#fff;
 		print "<input type='hidden' name='mail' value='".$mail."'>";
 		print "<input type='hidden' name='licence' value='".$licence."'>";
 		print "<input type='hidden' name='years_of_experience' value='".$years_of_experience."'>";
+		print "<input type='hidden' name='go_party' value='".$go_party."'>";
 		print "<input type='hidden' name='applicated_lesson_id' value='".$applicated_lesson_id."'>";
 		print "<input type='submit' value='確定'/>\n";
 		print "</form>\n";

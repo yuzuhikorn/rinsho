@@ -36,27 +36,50 @@ color:#fff;
 </div>
 <div id="contents">
 <?php
+	print "<h1>研修一覧</h1><br>";
 	include_once("./functions.php");
 	connect_to_mysql("select * from lesson");
+	mysql_close($link);
 	
 	if(@$num = mysql_num_fields($res)){
 		print "<table style='margin:auto; border:hidden;'>\n";
 		print "<tr>";
 		for($i = 1; $i < $num-1; $i++){
-			print "<th nowrap>";
-			print mysql_field_name($res, $i);
-			print "</th>";
+			if($i==2){
+				print "<th nowrap>";
+				print "実施日時";
+				print "</th>";
+			}else if($i==3){
+				//何もしない
+			}else{
+				print "<th nowrap>";
+				print mysql_field_name($res, $i);
+				print "</th>";
+			}
+			
 		}
 		print "</tr>\n";
 		while(@$data = mysql_fetch_row($res)){
 			print "<tr>";
 			for($j = 1; $j < $num-1; $j++){
-				print "<td bgcolor='white'>";
-				print $data[$j];
-				print "</td>";
+				if($j==2){
+					print "<td bgcolor='white'>";
+					$when_carry_out =date("Y年m月d日 ", strtotime($data[2]));
+					//			$when_carry_out.="<br>";
+					$when_carry_out.=date("h時i分〜", strtotime($data[2]));
+					//			$when_carry_out.="<br>";
+					$when_carry_out.=date("h時i分", strtotime($data[3]));
+					print $when_carry_out;
+					print "</td>";
+				}else if($j==3){
+					//何もしない
+				}else{
+					print "<td bgcolor='white'>";
+					print $data[$j];
+					print "</td>";
+				}
 			}
 			print "</tr>\n";
-			
 		}
 		print "</table>\n";
 	}

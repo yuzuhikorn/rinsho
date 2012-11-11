@@ -1,3 +1,15 @@
+<?php
+	session_start();
+if(!$_SERVER[HTTP_REFERER]){
+print "<!DOCTYPE HTML>
+<html>
+<meta charset='utf-8'><body>";
+	print "URL入力で直接来る事を禁止しています。<br>";
+	print "<a href='http://rinshoundoshogai.sakura.ne.jp'>http://rinshoundoshogai.sakura.ne.jp</a>からリンクを辿って来てください。";
+	print "</body></html>";
+	exit();
+	}
+	?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -34,13 +46,56 @@ color:#fff;
 </ul>
 </div>
 <div id="contents">
-<h1>定員オーバー</h1>
-<p>申し訳ありません。
-<p>ご希望の研修は現在、参加可能人数を超えております。
-<p>キャンセル待ちとして登録されますか?
-<p>(現在参加予定の方がキャンセルされた場合にメールでお伝えします。)<br>
+<h1>定員オーバー</h1><br>
 <?php
-	@$lesson_id = $_POST['lesson_id'];
+	if ($_POST) {
+		@$lesson_id = $_POST['lesson_id'];
+	}else{
+		@$lesson_id = $_SESSION['lesson_id'];
+	}
+	include_once("./functions.php");
+	connect_to_mysql("select * from lesson where 研修ID='".$lesson_id."'");
+	mysql_close($link);
+	if(@$num = mysql_num_fields($res)){
+		print "<table style='margin:auto; border:hidden;'>\n";
+		while(@$data = mysql_fetch_row($res)){
+			for($i = 1; $i < $num-1; $i++){
+				if($i==2){
+					print "<tr>";
+					print "<th nowrap>";
+					print "実施日時";
+					print "</th>";
+					print "<td bgcolor='white'>";
+					$when_carry_out =date("Y年m月d日 ", strtotime($data[2]));
+					//			$when_carry_out.="<br>";
+					$when_carry_out.=date("h時i分〜", strtotime($data[2]));
+					//			$when_carry_out.="<br>";
+					$when_carry_out.=date("h時i分", strtotime($data[3]));
+					print $when_carry_out;
+					print "</td>";
+					print "</tr>\n";
+				}else if($i==3){
+					//何もしない
+				}else{
+					print "<tr>";
+					print "<th nowrap>";
+					print mysql_field_name($res, $i);
+					print "</th>";
+					print "<td bgcolor='white'>";
+					print $data[$i];
+					print "</td>";
+					print "</tr>";
+				}
+			}
+		}
+		print "</table>";
+		print "<br>";
+	}
+	
+	print "<p>申し訳ありません。";
+	print "<p>ご希望の研修は現在、参加可能人数を超えております。";
+	print "<p>キャンセル待ちとして登録されますか?";
+	print "<p>(現在参加予定の方がキャンセルされた場合にメールでお伝えします。)";
     
 	print "<form action='application_this_lesson.php' method='POST'>\n";
 	print "<input type='hidden' name='lesson_id' value='".$lesson_id."' />";

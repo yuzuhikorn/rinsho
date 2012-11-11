@@ -1,39 +1,23 @@
 <?php
-	$before=1;
+	$before=3;
 	
 	
 	include_once("./functions.php");
-	connect_to_mysql('select applicant.名前,メール,希望研修ID,開始日時,終了日時 from applicant INNER JOIN lesson ON applicant.applicated_lesson_name=lesson.研修名 where applicant.希望研修ID= ANY(select 研修ID from lesson where 開始日時<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND AND 開始日時<now()-INTERVAL "'.$before.'" DAY - INTERVAL "1" SECOND + INTERVAL "1" DAY )');
-	
-	if ($res) echo "ok";
-	
-	$num_rows = mysql_num_rows($res);
+	connect_to_mysql('select * from applicant INNER JOIN lesson ON applicant.希望研修ID=lesson.研修ID where applicant.希望研修ID= ANY(select 研修ID from lesson where current_date<=開始日時-INTERVAL '.$before.' DAY and current_date>=開始日時-INTERVAL '.$before.' DAY -INTERVAL 1 DAY) and applicant.状態=3');
 	
 	if(@$num = mysql_num_fields($res)){
-		for($num_rows; $num_rows>0; $num_rows--){
-			while(@$data = mysql_fetch_row($res)){
-				//ヘッダー用変数
-				$subject = "remind";
-				$mailto = $data[1];
-				$mailfrom = "tyehai2@gmail.com";
-				$mailfromname = "tyehai2";
-				$subject = mb_encode_mimeheader(mb_convert_encoding($subject, "JIS", "auto"), "JIS");
-				$boundary = "----".uniqid(rand(),1);
-				//sendmailへアクセス
-				$mp = popen("/usr/sbin/sendmail -f $mailfrom $mailto", "w");
-				//Header
-				fputs($mp, "MIME-Version: 1.0\n");
-				fputs($mp, "Content-Type: Multipart/alternative; boundary=\'$boundary\'\n");
-				fputs($mp, "From: " .mb_encode_mimeheader($mailfromname) ."<" .$mailfrom .">\n");
-				fputs($mp, "To: $mailto\n");
-				fputs($mp, "Subject: $subject\n");
-				//本文
-				fputs($mp, "\n");
-				fputs($mp, $data[0]."様\nお申し込みいただいた研修会「".$data[2]."」の開催日が".$before."日後に迫っています。\n会場でお会いできる事をを楽しみにしております。\n");
-				fputs($mp, "\n");
-				//sendmailへのプロセスを開放
-				pclose($mp);
-			}
+			while(@$row = mysql_fetch_assoc($res)){
+				$when_carry_out =date("Y年m月d日 ", strtotime($row['開始日時']));
+		$when_carry_out.=date("h時i分〜", strtotime($row['開始日時']));
+		$when_carry_out.=date("h時i分", strtotime($row['終了日時']));
+				
+				$body=$row['名前']."様へ\nお申し込み頂いた研修の開催が".$before."日後に迫っています。\n\n研修名:".$row['研修名']."\n実施日時:".$when_carry_out."\n講師:".$row['講師']."\n講師所属:".$row['講師所属']."\n会場:".$row['会場']."\n料金:".$row['料金']."円\n";
+				if($row['懇親会']=="あり"){
+					$body.= "懇親会:あり";
+					}
+				$body.="当日会場でお会いできる事を楽しみにしております。";
+				print $body."<br>";
+				mail_to_applicant($row['メール'],"リマインド",$body);
+				}
 		}
-	}
 	?>

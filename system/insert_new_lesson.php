@@ -16,13 +16,19 @@
 		@$laboratory = $_POST['laboratory'];
 		@$place = $_POST['place'];
 		@$fee = $_POST['fee'];
+		@$party = $_POST['party'];
+		@$party_fee = $_POST['party_fee'];
+		
+		if($party=="なし"){
+		$party_fee="なし";
+		}
 		
 		$start=date("Y").'-'.$start_month.'-'.$start_day.' '.$start_hour.':'.$start_minute;
 		$finish=date("Y").'-'.$finish_month.'-'.$finish_day.' '.$finish_hour.':'.$finish_minute;
 		
 		
 		include_once("./functions.php");
-		connect_to_mysql('insert into lesson (研修名,開始日時,終了日時,講師,講師所属,会場,料金) values ("'.$lesson_name.'","'.$start.'","'.$finish.'","'.$teacher.'","'.$laboratory.'","'.$place.'","'.$fee.'")');
+		connect_to_mysql('insert into lesson (研修名,開始日時,終了日時,講師,講師所属,会場,料金,懇親会,懇親会の料金) values ("'.$lesson_name.'","'.$start.'","'.$finish.'","'.$teacher.'","'.$laboratory.'","'.$place.'","'.$fee.'","'.$party.'","'.$party_fee.'")');
 		
 		
 		

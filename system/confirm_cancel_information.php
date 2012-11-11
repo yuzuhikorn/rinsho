@@ -69,8 +69,8 @@ border:1px #aaa solid;
 		print "</div>\n";
 	}
 	?>
-　<div style="float:right; position:relative; right:100px;">
-<a href="<?php echo $_SERVER['HTTP_REFERER'];?>">前に戻る</a>　<a href ="./index.html" >トップに戻る</a>
+<div style="float:right; position:relative; right:100px;">
+<a href ="./index.html" >トップに戻る</a>
 </div>
 </body>
 </html>
