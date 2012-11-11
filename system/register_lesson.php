@@ -396,11 +396,11 @@ function numOnly() {
 <article itemscope itemtype="http://schema.org/Article">
 <h2>新規研修登録</h2>
 <p>新規に研修を登録します。
-<div style="text-align:center;">
+<div style="text-align:right;width:700px;margin:auto;">
 <form action="confirm_lesson_information.php" method="POST">
 研修名：<input type="text" name="lesson_name" size="100" /><br/>
 <?php
-	print "日時:<select name='start_month'>";
+	print "日時：<select name='start_month'>";
 	print "<option value=''>-月</option>";
 	for($start_month_number=1; $start_month_number<=12; $start_month_number++){
 		print "'<option value=".$start_month_number.">".$start_month_number."月</option>'";
@@ -460,10 +460,14 @@ function numOnly() {
 所属：<input type="text" name="laboratory" size="100" /><br/>
 場所：<input type="text" name="place" size="100" /><br/>
 参加費：<input type="text" name="fee" size="100" onkeyDown="return numOnly()"/><br/>
+<div style="right:418px;position:relative">
 懇親会：<input type="radio" name="party" value="あり"> あり
 <input type="radio" name="party" value="なし" checked> なし<br/>
+</div>
 懇親会の参加費：<input type="text" name="party_fee" size="100" onkeyDown="return numOnly()"/><br/>
+<div style="text-align:center">
 <input type="submit" value="研修登録"/><br>
+</div>
 </div>
 </form>
 		</article>
